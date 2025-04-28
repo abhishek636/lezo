@@ -42,9 +42,9 @@ export default function Home() {
       .catch((error) => console.error('Error loading card data:', error));
   }, []);
 
-  const openPopup = (card) => {
+  const openPopup = (nav) => {
     // Fetch the additional cards dynamically from the respective file
-    fetch(card.popupContent.additionalCardsFile)
+    fetch(nav.popupContent.additionalCardsFile)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -53,7 +53,7 @@ export default function Home() {
       })
       .then((additionalCards) => {
         setPopupContent({
-          ...card.popupContent, // Keep existing popup content
+          ...nav.popupContent, // Keep existing popup content
           additionalCards: additionalCards, // Add additional cards dynamically
         });
         setIsPopupOpen(true); // Open the popup
@@ -98,11 +98,11 @@ export default function Home() {
       </div>
 
       <div className={`absolute bottom-44 w-full flex justify-center gap-5 transition-all duration-500 ${menuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}>
-        {cardsData.map((card) => (
+        {cardsData.map((nav) => (
           <div
             key={card.id}
             className="bg-white/20 p-4 rounded-lg flex flex-col items-center backdrop-blur-sm w-36 h-36 hover:scale-120"
-            onClick={() => openPopup(card)} // Open popup when a card is clicked
+            onClick={() => openPopup(nav)} // Open popup when a card is clicked
           >
             <Image src={card.imageSrc} alt={card.title} width={92} height={92} />
             <p className="text-sm mt-2 text-white font-light">{card.title}</p>
