@@ -44,3 +44,23 @@ body {
   white-space: nowrap;   /* Prevent text from wrapping */
   animation: marquee 20s linear infinite;
 }
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  max-height: 100px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #f8d8a0, #b7745c, #6a4034); /* slightly darker on hover */
+}

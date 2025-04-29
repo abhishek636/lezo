@@ -1,37 +1,37 @@
 
 
 [
-    {
-      "id": 1,
-      "title": "Framework",
-      "imageSrc": "/framer.png",
-      "popupContent": {
-        "additionalCardsFile": "/additionalcardsfiles/frameworkAdditionalCards.json"
-      }
-    },
-    {
-      "id": 2,
-      "title": "Agent Store",
-      "imageSrc": "/Agent.png",
+  {
+    "id": 1,
+    "title": "Framework",
+    "imageSrc": "/framer.png",
+    "popupContent": {
+      "additionalCardsFile": "/additionalcardsfiles/frameworkAdditionalCards.json"
+    }
+  },
+  {
+    "id": 2,
+    "title": "Agent Store",
+    "imageSrc": "/Agent.png",
+    "popupContent": {
+      "additionalCardsFile": "/additionalcardsfiles/daoAdditionalCards.json"
+    }
+  },
+  {
+      "id": 3,
+      "title": "Partners",
+      "imageSrc": "/Partners.png",
       "popupContent": {
         "additionalCardsFile": "/additionalcardsfiles/daoAdditionalCards.json"
       }
-    },
-    {
-        "id": 3,
-        "title": "Partners",
-        "imageSrc": "/Partners.png",
-        "popupContent": {
-          "additionalCardsFile": "/additionalcardsfiles/daoAdditionalCards.json"
-        }
-    },
-    {
-        "id": 4,
-        "title": "DAO",
-        "imageSrc": "/DAO.png",
-        "popupContent": {
-          "additionalCardsFile": "/additionalcardsfiles/daoAdditionalCards.json"
-        }
-    }
+  },
+  {
+      "id": 4,
+      "title": "DAO",
+      "imageSrc": "/DAO.png",
+      "popupContent": {
+        "additionalCardsFile": "/additionalcardsfiles/daoAdditionalCards.json"
+      }
+  }
 ]
   
