@@ -100,6 +100,12 @@ export default function Home() {
       <div className="relative w-screen h-screen overflow-hidden">
         <div className="absolute top-0 w-full bg-white/29 flex items-center gap-4 p-2 whitespace-nowrap overflow-hidden">
           <div className="animate-marquee text-white">
+            {marqueeText} &nbsp;&bull;&nbsp; {marqueeText} &nbsp;&bull;&nbsp; {marqueeText} &nbsp;&bull;&nbsp;
+          </div>
+          <div className="animate-marquee text-white">
+            {marqueeText} &nbsp;&bull;&nbsp; {marqueeText} &nbsp;&bull;&nbsp; {marqueeText} &nbsp;&bull;&nbsp;
+          </div>
+          <div className="animate-marquee text-white">
             {marqueeText} &nbsp;&bull;&nbsp; {marqueeText} &nbsp;&bull;&nbsp; {marqueeText}
           </div>
         </div>
@@ -115,7 +121,7 @@ export default function Home() {
         />
       </div>
 
-      <div className={`absolute bottom-36 w-full flex justify-center gap-5 transition-all duration-500 ${menuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}>
+      <div className={`absolute xl:bottom-36 sm:bottom-56 bottom-70 w-full flex flex-wrap justify-center gap-5 transition-all duration-500 ${menuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}>
         {cardsData.map((card: Card) => (
           <div
             key={card.id}
@@ -130,7 +136,7 @@ export default function Home() {
 
       {isPopupOpen && popupContent && (
         <div className="fixed top-1/4 left-1 right-0 flex items-center justify-center z-50">
-          <div className="relative bg-white/10 backdrop-blur-2xl border border-white/20 rounded-2xl p-8 w-[980px] h-[80vh] flex flex-col overflow-hidden pb-[5vh]">
+          <div className="relative bg-white/10 backdrop-blur-2xl border border-white/20 rounded-2xl sm:p-8 p-4 w-[980px] h-[80vh] flex flex-col overflow-hidden pb-[5vh]">
             
             {/* Close Button */}
             <button
@@ -149,7 +155,7 @@ export default function Home() {
 
             {/* Popup Content */}
             <div className="flex-1 mt-14 overflow-y-auto overflow-x-hidden">
-              <div className="grid grid-cols-7 gap-4">
+              <div className="grid md:grid-cols-7 sm:grid-cols-5 grid-cols-3 sm:gap-4 gap-2">
                 {popupContent.additionalCards && popupContent.additionalCards.map((additionalCard: AdditionalCard) => (
                   <div
                     key={additionalCard.id}
@@ -167,9 +173,9 @@ export default function Home() {
         </div>
       )}
 
-      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 bg-white/20 bg-[var(--custom-gradient)] p-4 rounded-t-xl flex items-center justify-between gap-6">
-        <div className="bg-white/10 flex items-center gap-2.5 py-2.5 px-12 rounded-lg">
-          <div className="flex flex-col items-center text-lg text-white">
+      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 bg-white/20 bg-[var(--custom-gradient)] p-4 rounded-t-xl flex items-center flex-wrap justify-center xl:justify-between gap-6">
+        <div className="bg-white/10 flex items-center gap-2.5 py-2.5 lg:px-12 px-2 rounded-lg">
+          <div className="flex flex-col text-lg text-white">
             <span>{currentTime}</span>
             <span>{currentDate}</span>
           </div> 
@@ -189,7 +195,7 @@ export default function Home() {
 
         <div className="flex gap-2 text-lg">
           <button onClick={toggleMenu}>
-            <Image src="/toggel.png" alt="Toggle Menu" width={62} height={62}/>  
+            <Image src={menuOpen ? "/close_toggel.png" : "/toggel.png"} alt="Toggle Menu" width={62} height={62}/>  
           </button> 
           <a target="_blank" href="#">
             <Image src="/twitter.png" alt="Twitter" width={62} height={62} />
