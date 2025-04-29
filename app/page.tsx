@@ -157,7 +157,7 @@ export default function Home() {
             <div className="flex-1 mt-14 overflow-y-auto overflow-x-hidden">
               <div className="grid md:grid-cols-7 sm:grid-cols-5 grid-cols-3 sm:gap-4 gap-2">
                 {popupContent.additionalCards && popupContent.additionalCards.map((additionalCard: AdditionalCard) => (
-                  <div
+                  <a
                     key={additionalCard.id}
                     className="flex flex-col items-center justify-center w-full hover:scale-110 transition-transform"
                   >
@@ -165,7 +165,7 @@ export default function Home() {
                       <Image src={additionalCard.imageSrc} alt={additionalCard.title} width={107} height={107}/>
                     </div>
                     <p className="text-xs mt-2 text-white">{additionalCard.title}</p>
-                  </div>
+                  </a>
                 ))}
               </div>
             </div>
