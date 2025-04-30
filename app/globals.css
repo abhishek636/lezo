@@ -3,7 +3,6 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --custom-gradient: linear-gradient(115.95deg, rgba(239, 239, 239, 0.18) 10.92%, rgba(255, 255, 255, 0.024) 96.4%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,6 +17,9 @@ body {
   --color-foreground: var(--foreground);
   --font-sans: var(--font-outfit);
   --font-mono: var(--font-outfit);
+}
+.bg-custom-gradient {
+  background: linear-gradient(115.95deg, rgba(239, 239, 239, 0.18) 10.92%, rgba(255, 255, 255, 0.024) 96.4%);
 }
 
 /* globals.css or your stylesheet */

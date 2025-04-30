@@ -1,12 +1,14 @@
 'use client';
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Footer from "./components/footer";
 
 // Define types
 type AdditionalCard = {
   id: string;
   title: string;
   imageSrc: string;
+  href:string;
 };
 
 type PopupContent = {
@@ -22,6 +24,7 @@ type Card = {
 };
 
 export default function Home() {
+  const [isModalMinimized, setIsModalMinimized] = useState(false);
   const [currentTime, setCurrentTime] = useState("");
   const [currentDate, setCurrentDate] = useState("");
   const marqueeText = "OPERATING SYSTEM FOR AI AGENTS";
@@ -158,6 +161,7 @@ export default function Home() {
               <div className="grid md:grid-cols-7 sm:grid-cols-5 grid-cols-3 sm:gap-4 gap-2">
                 {popupContent.additionalCards && popupContent.additionalCards.map((additionalCard: AdditionalCard) => (
                   <a
+                    href={additionalCard.href}
                     key={additionalCard.id}
                     className="flex flex-col items-center justify-center w-full hover:scale-110 transition-transform"
                   >
@@ -172,39 +176,8 @@ export default function Home() {
           </div>
         </div>
       )}
-
-      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 bg-white/20 bg-[var(--custom-gradient)] p-4 rounded-t-xl flex items-center flex-wrap justify-center xl:justify-between gap-6">
-        <div className="bg-white/10 flex items-center gap-2.5 py-2.5 lg:px-12 px-2 rounded-lg">
-          <div className="flex flex-col text-lg text-white">
-            <span>{currentTime}</span>
-            <span>{currentDate}</span>
-          </div> 
-          <div>
-            <Image src="/Clock.png" alt="Clock" width={28} height={28} />
-          </div>
-        </div>
-
-        <div className="flex items-center justify-center">
-          <Image
-            src="/logo1.png"
-            alt="LEZO Logo"
-            width={131} 
-            height={40}
-          />
-        </div>
-
-        <div className="flex gap-2 text-lg">
-          <button onClick={toggleMenu}>
-            <Image src={menuOpen ? "/close_toggel.png" : "/toggel.png"} alt="Toggle Menu" width={62} height={62}/>  
-          </button> 
-          <a target="_blank" href="#">
-            <Image src="/twitter.png" alt="Twitter" width={62} height={62} />
-          </a>
-          <a target="_blank" href="#">
-            <Image src="/telegram.png" alt="Telegram" width={62} height={62} />
-          </a>
-        </div>
-      </div>
+      <Footer/>
+      
     </div>
   );
 }
