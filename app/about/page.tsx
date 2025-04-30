@@ -136,7 +136,7 @@ export default function About() {
         />
       )}
 
-        <Footer showRestoreButton={isModalMinimized} onRestore={restorePopup} />
+        <Footer  />
     </div>
   );
 }
