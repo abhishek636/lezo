@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import '../globals.css';
+import Link from 'next/link';
 
 type Message = { role: 'user' | 'bot'; text: string };
 
@@ -114,7 +115,16 @@ export default function DraggableModal() {
 
       {/* Logo */}
       <div className="absolute top-1/8 w-full flex justify-center">
-        <Image src="/logo.svg" alt="LEZO Logo" width={200} height={100} priority  className="w-32 h-12 sm:w-48 sm:h-24 object-contain"/>
+      <Link href="/" passHref>
+        <Image
+          src="/logo.svg"
+          alt="LEZO Logo"
+          width={200}
+          height={100}
+          priority
+          className="w-32 h-12 sm:w-48 sm:h-24 object-contain cursor-pointer"
+        />
+      </Link>
       </div>
 
       {/* Modal */}

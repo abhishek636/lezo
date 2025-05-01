@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Footer from "./components/footer";
+import Link from 'next/link';
 
 // Define types
 type AdditionalCard = {
@@ -118,7 +119,16 @@ export default function Home() {
       </div>
 
       <div className="absolute top-1/8 w-full flex justify-center">
-        <Image src="/logo.svg" alt="LEZO Logo" width={200} height={100} priority  className="w-32 h-12 sm:w-48 sm:h-24 object-contain"/>
+      <Link href="/" passHref>
+        <Image
+          src="/logo.svg"
+          alt="LEZO Logo"
+          width={200}
+          height={100}
+          priority
+          className="w-32 h-12 sm:w-48 sm:h-24 object-contain cursor-pointer"
+        />
+      </Link>
       </div>
 
       <div className={`absolute xl:bottom-36 sm:bottom-56 bottom-70 w-full flex flex-wrap justify-center gap-5 transition-all duration-500 ${menuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}>
