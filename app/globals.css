@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@layer utilities {
+  .gradient-border {
+    box-shadow: inset 0 2px 0 #ffffff33;
+  }
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -15,8 +21,7 @@
 body {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-outfit);
-  --font-mono: var(--font-outfit);
+  font-family: var(--font-outfit), sans-serif; /* Use Outfit variable here */
 }
 .bg-custom-gradient {
   background: linear-gradient(115.95deg, rgba(239, 239, 239, 0.18) 10.92%, rgba(255, 255, 255, 0.024) 96.4%);
@@ -65,4 +70,13 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(to bottom, #f8d8a0, #b7745c, #6a4034); /* slightly darker on hover */
+}
+@media (max-width:769px){
+  .custom-marrggin-a{
+    margin: 0 15px;
+    overflow: hidden !important;
+  }
+}
+.backdrop_custom{
+  backdrop-filter: blur(76.14620971679688px)
 }

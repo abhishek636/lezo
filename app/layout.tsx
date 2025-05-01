@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 
-// Import Outfit
+// Import Outfit font
 const outfit = Outfit({
-  variable: "--font-outfit",
   subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "700"],
+  variable: "--font-outfit", // Custom variable name
+  display: "swap", // Optional: ensures better performance for font loading
 });
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={outfit.variable}>
       <body className={`${outfit.variable} antialiased`}>
         {children}
       </body>

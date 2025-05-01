@@ -92,13 +92,17 @@ export default function Home() {
 
   return (
     <div className="relative w-screen h-screen overflow-hidden">
-      <Image
-        src="/BG.png"
-        alt="Background"
-        layout="fill"
-        objectFit="cover"
-        quality={100}
-      />
+      <iframe
+        width="100%"
+        height="100%"
+        src="https://www.youtube.com/embed/sIEaDl7hiNc?si=b81hfVXdw1MDgTu9&autoplay=1&mute=1&controls=0&loop=1&playlist=sIEaDl7hiNc"
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+        referrerPolicy="strict-origin-when-cross-origin"
+        className="w-full h-full object-cover pointer-events-none scale-125" 
+      ></iframe>
 
       <div className="relative w-screen h-screen overflow-hidden">
         <div className="absolute top-0 w-full bg-white/29 flex items-center gap-4 p-2 whitespace-nowrap overflow-hidden">
@@ -115,13 +119,7 @@ export default function Home() {
       </div>
 
       <div className="absolute top-1/8 w-full flex justify-center">
-        <Image 
-          src="/logo.png" 
-          alt="LEZO Logo" 
-          width={200} 
-          height={100} 
-          priority
-        />
+        <Image src="/logo.svg" alt="LEZO Logo" width={200} height={100} priority  className="w-32 h-12 sm:w-48 sm:h-24 object-contain"/>
       </div>
 
       <div className={`absolute xl:bottom-36 sm:bottom-56 bottom-70 w-full flex flex-wrap justify-center gap-5 transition-all duration-500 ${menuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}>
