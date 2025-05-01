@@ -92,17 +92,16 @@ export default function Home() {
 
   return (
     <div className="relative w-screen h-screen overflow-hidden">
-      <iframe
-        width="100%"
-        height="100%"
-        src="https://www.youtube.com/embed/sIEaDl7hiNc?si=b81hfVXdw1MDgTu9&autoplay=1&mute=1&controls=0&loop=1&playlist=sIEaDl7hiNc"
-        title="YouTube video player"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen
-        referrerPolicy="strict-origin-when-cross-origin"
-        className="w-full h-full object-cover pointer-events-none scale-125" 
-      ></iframe>
+      <div className="absolute top-1/2 left-1/2 w-[177.77vh] h-[100vh] -translate-x-1/2 -translate-y-1/2">
+        <iframe
+          className="w-full h-full"
+          src="https://www.youtube.com/embed/sIEaDl7hiNc?si=b81hfVXdw1MDgTu9&autoplay=1&mute=1&controls=0&loop=1&playlist=sIEaDl7hiNc&modestbranding=1&showinfo=0&rel=0"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="autoplay; encrypted-media"
+          allowFullScreen
+        ></iframe>
+      </div>
 
       <div className="relative w-screen h-screen overflow-hidden">
         <div className="absolute top-0 w-full bg-white/29 flex items-center gap-4 p-2 whitespace-nowrap overflow-hidden">
