@@ -118,10 +118,10 @@ export default function DraggableModal() {
       </div>
 
       {/* Modal */}
-      <div className="fixed custom-marrggin-a inset-0 z-50 flex justify-center sm:items-center items-end sm:w-auto mx-auto overflow-hidden" onMouseMove={handleMouseMove} onMouseUp={handleMouseUp}>
+      <div className=" fixed custom-marrggin-a inset-0 z-50 flex justify-center sm:items-center items-end sm:w-auto mx-auto overflow-hidden" onMouseMove={handleMouseMove} onMouseUp={handleMouseUp}>
         <div
           ref={modalRef}
-          className={`absolute  rounded-lg border border-gray-400 shadow-xl ${isMaximized ? 'top-0 left-0 w-full  h-[100vh] backdrop_custom bg-custom-gradient' : 'lg:w-[890px] w-full backdrop_custom  bg-custom-gradient'}`}
+          className={`absolute MOBILE_HEIGHT  rounded-lg border border-gray-400 shadow-xl ${isMaximized ? 'top-0 left-0 w-full  h-[100vh] backdrop_custom bg-custom-gradient' : 'lg:w-[890px] w-full backdrop_custom  bg-custom-gradient'}`}
           style={!isMaximized && isClient && windowWidth >= 768 ? { left: position.x, top: position.y } : {}}
         >
           {/* Header */}
@@ -167,15 +167,15 @@ export default function DraggableModal() {
                 </div>
               ) : (
                 <div className="sm:py-7 sm:px-16 p-4 flex flex-col min-h-[500px] h-full p-4 bg-white/30 backdrop-blur-lg rounded-lg text-[#4C4C4C] space-y-4 overflow-hidden">
-                  <div className=" flex-1 overflow-y-auto p-2 rounded">
+                  <div className=" sm:flex-1 overflow-y-auto p-2 rounded">
                     {messages.length === 0 && (
                       <div className="rounded-lg text-center text-[#4C4C4C] space-y-6">
-                        <div className="inline-flex gap-2 items-center bg-white/40 rounded-xl p-2 w-content text-[#4C4C4C]">
+                        <div className="inline-flex sm:gap-2 gap-1 items-center bg-white/40 rounded-xl p-2 w-content text-[#4C4C4C]">
                           <Image src="/vaulate.svg" alt="Logo" width={20} height={20} />
                           EFWvSq...v27Q9g
                           <Image src="/weui_arrow-outlined.svg" alt="Logo" width={16} height={16} />
                         </div>
-                        <h2 className="text-4xl text-[#4C4C4C]">Where can DeFy help you bridge today?</h2>
+                        <h2 className="sm:text-4xl text-2xl; text-[#4C4C4C] sm:mb-auto mb-2">Where can DeFy help you bridge today?</h2>
                         <p className="text-sm text-[#4C4C4C]">Choose from various Bridging options.</p>
                       </div>
                     )}
@@ -193,7 +193,7 @@ export default function DraggableModal() {
                     ))}
                   </div>
 
-                  <div>
+                  <div className='sm:static absolute sm:px-auto px-3 bottom-10 left-0 right-0'>
                     {messages.length === 0 && (
                       <div className="rounded-lg text-center text-[#4C4C4C] space-y-6 mb-4">
                         <div className="grid sm:grid-cols-3 grid-cols-2 gap-4 text-sm text-left">

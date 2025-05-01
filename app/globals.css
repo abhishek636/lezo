@@ -73,8 +73,14 @@ body {
 }
 @media (max-width:769px){
   .custom-marrggin-a{
-    margin: 0 15px;
+    margin: 15px;
     overflow: hidden !important;
+  }
+  .MOBILE_HEIGHT{
+    min-height: 95vh !important;
+    max-height: 95vh !important;
+    z-index: 99;
+    height: 100%;
   }
 }
 .backdrop_custom{
