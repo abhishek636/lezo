@@ -74,7 +74,7 @@ export default function DraggableModal() {
           const adjustedLeft = windowWidth <= 768 ? 0 : centerX;
 
           // Adjust top position based on screen size (for mobile)
-          const adjustedTop = windowWidth <= 768 ? window.innerHeight / 4 : centerY; // For mobile, set top to 1/4 of the screen height
+          const adjustedTop = windowWidth <= 768 ? window.innerHeight / 5.5 : centerY; // For mobile, set top to 1/4 of the screen height
 
           setPosition({ x: adjustedLeft, y: adjustedTop });
         }
@@ -184,7 +184,7 @@ export default function DraggableModal() {
          onTouchEnd={handleTouchEnd}>
         <div
           ref={modalRef}
-          className={`absolute  rounded-lg border border-gray-400 backdrop_custom  shadow-xl ${isMaximized ? 'top-0 left-0 w-full  h-full backdrop_custom bg-custom-gradient' : 'lg:w-[890px] w-full   bg-custom-gradient'}`}
+          className={`absolute rounded-lg border border-gray-400 backdrop_custom shadow-xl ${isMaximized ? 'top-0 left-0 w-full h-full backdrop_custom bg-custom-gradient' : 'lg:w-[890px] w-full bg-custom-gradient'}`}
           style={!isMaximized && isClient? { left: position.x, top: position.y } : {}}
         >
           {/* Header */}
