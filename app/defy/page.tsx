@@ -33,20 +33,27 @@ export default function DraggableModal() {
     setIsClient(true);
     if (typeof window !== 'undefined') {
       setWindowWidth(window.innerWidth);
-  
+
       const updateCenterPosition = () => {
         if (modalRef.current) {
           const modalRect = modalRef.current.getBoundingClientRect();
           const centerX = window.innerWidth / 2 - modalRect.width / 2;
           const centerY = window.innerHeight / 2 - modalRect.height / 2;
-          setPosition({ x: centerX, y: centerY });
+
+          // Adjust position based on screen width (avoid too much left offset on mobile)
+          const adjustedLeft = windowWidth <= 768 ? 0 : centerX;
+
+          // Adjust top position based on screen size (for mobile)
+          const adjustedTop = windowWidth <= 768 ? window.innerHeight / 4 : centerY; // For mobile, set top to 1/4 of the screen height
+
+          setPosition({ x: adjustedLeft, y: adjustedTop });
         }
       };
-  
+
       // Delay to ensure modalRef is available and has correct dimensions
       setTimeout(updateCenterPosition, 0);
     }
-  }, []);
+  }, [windowWidth]);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     if (windowWidth < 768) return;
@@ -132,7 +139,7 @@ export default function DraggableModal() {
         <div
           ref={modalRef}
           className={`absolute MOBILE_HEIGHT  rounded-lg border border-gray-400 shadow-xl ${isMaximized ? 'top-0 left-0 w-full  h-[100vh] backdrop_custom bg-custom-gradient' : 'lg:w-[890px] w-full backdrop_custom  bg-custom-gradient'}`}
-          style={!isMaximized && isClient && windowWidth >= 768 ? { left: position.x, top: position.y } : {}}
+          style={!isMaximized && isClient? { left: position.x, top: position.y } : {}}
         >
           {/* Header */}
           <div onMouseDown={handleMouseDown} className="px-4 py-2 bg-[#4C4C4C] md:cursor-move rounded-t-lg relative">
@@ -159,7 +166,7 @@ export default function DraggableModal() {
 
           {/* Modal Content */}
           {!isMinimized && (
-            <div className="bg-custom-gradient h-full">
+            <div>
               {!accepted ? (
                 <div className="flex items-center justify-center flex-1 overflow-y-auto px-6 md:px-36 py-20 md:py-28">
                   <div className="p-4 space-y-4 bg-custom-gradient rounded-lg">
@@ -176,7 +183,7 @@ export default function DraggableModal() {
                   </div>
                 </div>
               ) : (
-                <div className="sm:py-7 sm:px-16 p-4 flex flex-col min-h-[500px] h-full p-4 bg-white/30 backdrop-blur-lg rounded-lg text-[#4C4C4C] space-y-4 overflow-hidden">
+                <div className="sm:py-7 sm:px-16 p-4 flex flex-col min-h-[500px] h-full p-4 rounded-b-lg text-[#4C4C4C] space-y-4 overflow-hidden">
                   <div className=" sm:flex-1 overflow-y-auto p-2 rounded">
                     {messages.length === 0 && (
                       <div className="rounded-lg text-center text-[#4C4C4C] space-y-6">

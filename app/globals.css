@@ -83,7 +83,7 @@ body {
     height: 100%;
   }
   body{
-    height: 100dvh;
+    max-height: 100dvh;
   }
 }
 .backdrop_custom{
