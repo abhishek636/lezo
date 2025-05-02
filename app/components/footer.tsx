@@ -174,7 +174,7 @@ export default function Footer() {
         style={{ backdropFilter: 'blur(76.14620971679688px)' }}
         className="absolute gradient-border backdrop-blur-2xs bottom-0 left-1/2 transform -translate-x-1/2 bg-white/20 p-3 rounded-t-xl flex items-center w-full sm:w-auto justify-center xl:justify-between gap-6"
       >
-        <div className="bg-white/10 sm:flex items-center gap-2.5 py-2.5 lg:px-10 px-2 rounded-lg hidden">
+        <div className="bg-white/10 sm:flex items-center gap-2.5 sm:py-8 lg:px-10 px-2 rounded-lg hidden">
           <div className="flex flex-col text-lg text-white font-light leading-none">
             <span>{currentTime}</span>
             <span>{currentDate}</span>
@@ -193,6 +193,7 @@ export default function Footer() {
         <div className="flex items-center justify-center">
           <Image src="/logo1.svg" alt="LEZO Logo" width={131} height={40} />
         </div>
+        
 
         <div className="flex gap-2 text-lg">
           <button onClick={toggleMenu} className="cursor-pointer">
