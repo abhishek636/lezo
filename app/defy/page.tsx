@@ -209,11 +209,13 @@ export default function DraggableModal() {
                           >
                             <div
                               onClick={() => isMobile && setDropdownOpen((prev) => !prev)}
-                              className="inline-flex sm:gap-2 gap-1 items-center bg-white/40 rounded-xl p-2 w-content text-[#4C4C4C] cursor-pointer"
+                              className="inline-flex  sm:gap-4 sm:px-2.5 gap-1 items-center bg-white/40 rounded-xl p-2 w-content text-[#4C4C4C] cursor-pointer"
                             >
                               <Image src="/vaulate.svg" alt="Logo" width={20} height={20} />
                               EFWvSq...v27Q9g
-                              <Image src="/weui_arrow-outlined.svg" alt="Arrow" width={16} height={16} />
+                              <div className='sm:pl-6'>
+                              <Image  src="/weui_arrow-outlined.svg" alt="Arrow" width={16} height={16} />
+                              </div>
                             </div>
                     
                             {/* Dropdown menu */}
