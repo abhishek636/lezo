@@ -72,19 +72,24 @@ body {
   background: linear-gradient(to bottom, #f8d8a0, #b7745c, #6a4034); /* slightly darker on hover */
 }
 @media (max-width:769px){
-  .custom-marrggin-a{
-    margin: 15px;
-    overflow: hidden !important;
+  html, body {
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
   }
-  .MOBILE_HEIGHT{
+  /* .custom-marrggin-a{
+    margin:0px 15px;
+    overflow: hidden !important;
+  } */
+  /* .MOBILE_HEIGHT{
     min-height: 70vh !important;
     max-height: 70vh !important;
     z-index: 999;
     height: 100%;
-  }
-  body{
-    max-height: 100dvh;
-  }
+  } */
+  /* body{
+    max-height: 100vh;
+  } */
 }
 .backdrop_custom{
   backdrop-filter: blur(76.14620971679688px)

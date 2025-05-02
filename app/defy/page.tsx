@@ -183,7 +183,7 @@ export default function DraggableModal() {
                   </div>
                 </div>
               ) : (
-                <div className="sm:py-7 sm:px-16 p-4 flex flex-col min-h-[500px] h-full p-4 rounded-b-lg text-[#4C4C4C] space-y-4 overflow-hidden">
+                <div className="sm:py-7 sm:px-16  p-4 flex flex-col min-h-[500px] h-full p-4 rounded-b-lg text-[#4C4C4C] space-y-4 overflow-hidden">
                   <div className=" sm:flex-1 overflow-y-auto p-2 rounded">
                     {messages.length === 0 && (
                       <div className="rounded-lg text-center text-[#4C4C4C] space-y-6">
@@ -210,7 +210,7 @@ export default function DraggableModal() {
                     ))}
                   </div>
 
-                  <div className='sm:static absolute sm:px-auto px-3 bottom-10 left-0 right-0'>
+                  <div className=' absolute sm:px-auto px-3 bottom-10 left-0 right-0'>
                     {messages.length === 0 && (
                       <div className="rounded-lg text-center text-[#4C4C4C] space-y-6 mb-4">
                         <div className="grid sm:grid-cols-3 grid-cols-2 gap-4 text-sm text-left">
