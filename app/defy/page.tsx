@@ -153,7 +153,7 @@ export default function DraggableModal() {
       <div className=" fixed custom-marrggin-a inset-0 z-50 flex justify-center sm:items-center items-end sm:w-auto mx-auto overflow-hidden" onMouseMove={handleMouseMove} onMouseUp={handleMouseUp}>
         <div
           ref={modalRef}
-          className={`absolute  rounded-lg border border-gray-400 shadow-xl ${isMaximized ? 'top-0 left-0 w-full  h-full backdrop_custom bg-custom-gradient' : 'lg:w-[890px] w-full   bg-custom-gradient'}`}
+          className={`absolute  rounded-lg border border-gray-400 backdrop_custom  shadow-xl ${isMaximized ? 'top-0 left-0 w-full  h-full backdrop_custom bg-custom-gradient' : 'lg:w-[890px] w-full   bg-custom-gradient'}`}
           style={!isMaximized && isClient? { left: position.x, top: position.y } : {}}
         >
           {/* Header */}
