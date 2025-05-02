@@ -198,8 +198,8 @@ export default function DraggableModal() {
                   </div>
                 </div>
               ) : (
-                <div className="sm:py-7 sm:px-16  p-4 flex flex-col min-h-[500px] h-full p-4 rounded-b-lg text-[#4C4C4C] space-y-4 overflow-hidden">
-                  <div className=" sm:flex-1 overflow-y-auto p-2 rounded">
+                <div className="sm:py-7 sm:px-16  p-4 flex flex-col min-h-[500px] h-full sm:p-4 p-2 rounded-b-lg text-[#4C4C4C] space-y-4 overflow-hidden">
+                  <div className=" sm:flex-1 overflow-y-auto p-2 rounded sm:mb-4 mb-0">
                     {messages.length === 0 && (
                        <div className="rounded-lg text-center text-[#4C4C4C] space-y-6">
                           <div
@@ -209,7 +209,7 @@ export default function DraggableModal() {
                           >
                             <div
                               onClick={() => isMobile && setDropdownOpen((prev) => !prev)}
-                              className="inline-flex  sm:gap-4 sm:px-2.5 gap-1 items-center bg-white/40 rounded-xl p-2 w-content text-[#4C4C4C] cursor-pointer"
+                              className="inline-flex gap-4 px-2.5 gap-1 items-center bg-white/40 rounded-xl p-2 w-content text-[#4C4C4C] cursor-pointer"
                             >
                               <Image src="/vaulate.svg" alt="Logo" width={20} height={20} />
                               EFWvSq...v27Q9g
@@ -222,7 +222,7 @@ export default function DraggableModal() {
                             {isDropdownOpen && (
                               <div className="absolute left-0 w-fit bg-custom-gradient backdrop-blur-[76px] rounded-md shadow-lg z-10" >
                                 <ul className=" text-left text-sm text-[#4C4C4C]">
-                                  <li className="px-4 rounded-t-md py-2 hover:bg-[#4C4C4C] hover:text-white cursor-pointer">EFWVsq...v27Q9g (Linked wallet)</li>
+                                  <li className="px-4 rounded-t-md py-2 hover:bg-[#4C4C4C] hover:text-white cursor-pointer flex sm:gap-2 items-center">EFWVsq...v27Q9g <p className='text-xs'>(Linked wallet)</p></li>
                                   <li className="flex px-4 py-2 hover:bg-[#4C4C4C] hover:text-white cursor-pointer">
                                     <Image
                                       src='/material-symbols_logout.svg'
@@ -236,7 +236,7 @@ export default function DraggableModal() {
                             )}
                           </div>
                     
-                          <h2 className="sm:text-4xl text-lg text-[#4C4C4C] sm:mb-auto mb-2">
+                          <h2 className="sm:text-4xl text-lg text-[#4C4C4C] sm:mb-auto sm:mb-2 mb-0">
                             Where can DeFy help you bridge today?
                           </h2>
                           <p className="text-sm text-[#4C4C4C]">Choose from various Bridging options.</p>
@@ -259,7 +259,7 @@ export default function DraggableModal() {
                   <div className=' absolute sm:px-auto px-3 bottom-10 left-0 right-0'>
                     {messages.length === 0 && (
                       <div className="rounded-lg text-center text-[#4C4C4C] space-y-6 mb-4">
-                        <div className="grid sm:grid-cols-3 grid-cols-2 gap-4 text-sm text-left">
+                        <div className="grid sm:grid-cols-3 grid-cols-2 sm:gap-4 gap-2 text-sm text-left">
                           {[
                             { label: "Trending", desc: "Search trending tokens", icon: "/trending.png" },
                             { label: "Swap", desc: "Trade crypto assets instantly", icon: "/swap.png" },
@@ -268,7 +268,7 @@ export default function DraggableModal() {
                             { label: "Bridge", desc: "Transfer assets cross-chain", icon: "/bridge.png" },
                             { label: "Snipe", desc: "Snipe new launches quickly", icon: "/snipe.png" },
                           ].map((item, index) => (
-                            <div key={index} className="flex items-center space-x-4 p-2 bg-white/10 rounded-lg">
+                            <div key={index} className="flex items-center space-x-4 sm:p-2 p-1 bg-white/10 rounded-lg">
                               <div className="bg-white/10 p-4 rounded-lg mr-2">
                                 <Image src={item.icon} alt={item.label} width={20} height={20} />
                               </div>
