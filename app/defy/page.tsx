@@ -104,8 +104,8 @@ export default function DraggableModal() {
     <div className="relative w-screen h-screen overflow-hidden">
       <div className="absolute top-1/2 left-1/2 w-[177.77vh] h-[100vh] -translate-x-1/2 -translate-y-1/2">
         <iframe
-          className="w-full scale-125"
-          src="https://www.youtube.com/embed/sIEaDl7hiNc?si=b81hfVXdw1MDgTu9&autoplay=1&mute=1&controls=0&loop=1&playlist=sIEaDl7hiNc&modestbranding=1&showinfo=0&rel=0"
+          className="w-full h-full scale-125"
+          src="https://www.youtube.com/embed/sIEaDl7hiNc?autoplay=1&mute=1&controls=0&loop=1&playlist=sIEaDl7hiNc&modestbranding=1&showinfo=0&rel=0&disablekb=1&fs=0&iv_load_policy=3"
           title="YouTube video player"
           frameBorder="0"
           allow="autoplay; encrypted-media"
@@ -160,7 +160,7 @@ export default function DraggableModal() {
                 <Image src='/maximize.svg' alt='maximize.svg' width={18} height={18}/></button>
               </div>
             <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
-              <Image src="/Defi logo.png" alt="LEZO Logo" width={100} height={100} />
+              <Image src="/Defi logo.png" alt="LEZO Logo" width={100} height={22} />
             </div>
           </div>
 
