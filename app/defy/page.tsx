@@ -237,7 +237,7 @@ export default function DraggableModal() {
                           <h2 className="sm:text-4xl text-2xl text-[#4C4C4C] sm:mb-auto mb-2">
                             Where can DeFy help you bridge today?
                           </h2>
-                          <p className="text-sm text-[#4C4C4C]">Choose from various Bridging options</p>
+                          <p className="text-sm text-[#4C4C4C]">Choose from various Bridging options.</p>
                         </div>
                     )}
                     {messages.map((msg, idx) => (
