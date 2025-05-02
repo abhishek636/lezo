@@ -119,7 +119,7 @@ export default function Home() {
       </div>
 
       <div className="absolute top-1/8 w-full flex justify-center">
-      <Link href="/" passHref>
+      <Link href="/">
         <Image
           src="/logo.svg"
           alt="LEZO Logo"

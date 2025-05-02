@@ -82,6 +82,9 @@ body {
     z-index: 999;
     height: 100%;
   }
+  body{
+    height: 100dvh;
+  }
 }
 .backdrop_custom{
   backdrop-filter: blur(76.14620971679688px)
