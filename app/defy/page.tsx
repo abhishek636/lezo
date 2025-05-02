@@ -203,7 +203,7 @@ export default function DraggableModal() {
                     {messages.length === 0 && (
                        <div className="rounded-lg text-center text-[#4C4C4C] space-y-6">
                           <div
-                            className="relative inline-block sm:mb-auto mb-1"
+                            className="relative inline-block  mb-1 sm:mb-6.5"
                             onMouseEnter={() => !isMobile && setDropdownOpen(true)}
                             onMouseLeave={() => !isMobile && setDropdownOpen(false)}
                           >
