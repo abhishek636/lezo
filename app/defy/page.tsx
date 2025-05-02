@@ -30,6 +30,21 @@ export default function DraggableModal() {
 
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [hideFooterSection, setHideFooterSection] = useState(true);
+
+  const handleFooterClick = () => {
+    setIsMinimized(true); // Set the modal to minimized state
+    sessionStorage.setItem('modalMinimized', 'true');
+    sessionStorage.setItem('modalPosition', JSON.stringify(position));
+    setHideFooterSection(false)
+    router.push('/'); // Redirect to the homepage
+  };
+
+  useEffect(() => {
+    sessionStorage.clear(); // Clear session storage on page load or reopen
+    // Optionally, you can also check if there's minimized data and reset it
+    setIsMinimized(false); // Reset minimized state on page load
+  }, []);
 
   // Check if viewport is mobile/tablet
   useEffect(() => {
@@ -71,7 +86,6 @@ export default function DraggableModal() {
   }, [windowWidth]);
 
   const handleMouseDown = (e: React.MouseEvent) => {
-    if (windowWidth < 768) return;
     if (!modalRef.current) return;
     const rect = modalRef.current.getBoundingClientRect();
     setOffset({ x: e.clientX - rect.left, y: e.clientY - rect.top });
@@ -79,9 +93,25 @@ export default function DraggableModal() {
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || isMaximized || windowWidth < 768) return;
+    if (!isDragging || isMaximized) return;
     setPosition({ x: e.clientX - offset.x, y: e.clientY - offset.y });
   };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (!modalRef.current) return;
+    const rect = modalRef.current.getBoundingClientRect();
+    const touch = e.touches[0];
+    setOffset({ x: touch.clientX - rect.left, y: touch.clientY - rect.top });
+    setIsDragging(true);
+  };
+  
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging || isMaximized) return;
+    const touch = e.touches[0];
+    setPosition({ x: touch.clientX - offset.x, y: touch.clientY - offset.y });
+  };
+  
+  const handleTouchEnd = () => setIsDragging(false);
 
   const handleMouseUp = () => setIsDragging(false);
 
@@ -150,14 +180,20 @@ export default function DraggableModal() {
       </div>
 
       {/* Modal */}
-      <div className=" fixed custom-marrggin-a inset-0 z-50 flex justify-center sm:items-center items-end sm:w-auto mx-auto overflow-hidden" onMouseMove={handleMouseMove} onMouseUp={handleMouseUp}>
+      <div className=" fixed custom-marrggin-a inset-0 z-30 flex justify-center sm:items-center items-end sm:w-auto mx-auto overflow-hidden" onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onTouchMove={handleTouchMove}
+         onTouchEnd={handleTouchEnd}>
         <div
           ref={modalRef}
           className={`absolute  rounded-lg border border-gray-400 backdrop_custom  shadow-xl ${isMaximized ? 'top-0 left-0 w-full  h-full backdrop_custom bg-custom-gradient' : 'lg:w-[890px] w-full   bg-custom-gradient'}`}
           style={!isMaximized && isClient? { left: position.x, top: position.y } : {}}
         >
           {/* Header */}
-          <div onMouseDown={handleMouseDown} className="px-4 py-2 bg-[#4C4C4C] md:cursor-move rounded-t-lg relative">
+          <div onMouseDown={handleMouseDown} 
+             onTouchStart={handleTouchStart}
+             onTouchMove={handleTouchMove}
+             onTouchEnd={handleTouchEnd}
+             className="px-4 py-2 bg-[#4C4C4C] md:cursor-move rounded-t-lg relative"
+          >
             <div className="flex space-x-2">
               <button
                 onClick={() => {
@@ -213,17 +249,17 @@ export default function DraggableModal() {
                             >
                               <Image src="/vaulate.svg" alt="Logo" width={20} height={20} />
                               EFWvSq...v27Q9g
-                              <div className='sm:pl-6'>
+                              <div className='pl-6'>
                               <Image  src="/weui_arrow-outlined.svg" alt="Arrow" width={16} height={16} />
                               </div>
                             </div>
                     
                             {/* Dropdown menu */}
                             {isDropdownOpen && (
-                              <div className="absolute left-0 w-fit bg-custom-gradient backdrop-blur-[76px] rounded-md shadow-lg z-10" >
+                              <div className="absolute w-100 left-0 w-fit bg-[#ccb58c] backdrop-blur-[76px] rounded-md shadow-lg z-10" >
                                 <ul className=" text-left text-sm text-[#4C4C4C]">
-                                  <li className="px-4 rounded-t-md py-2 hover:bg-[#4C4C4C] hover:text-white cursor-pointer flex sm:gap-2 items-center">EFWVsq...v27Q9g <p className='text-xs'>(Linked wallet)</p></li>
-                                  <li className="flex px-4 py-2 hover:bg-[#4C4C4C] hover:text-white cursor-pointer">
+                                  <li className="px-4 rounded-t-md py-2 hover:bg-[#4C4C4C] hover:text-white cursor-pointer flex sm:gap-2 justify-between items-center">EFWVsq...v27Q9g <p className='text-xs'>(Linked wallet)</p></li>
+                                  <li className="flex  px-4 py-2 hover:bg-[#4C4C4C] hover:text-white cursor-pointer">
                                     <Image
                                       src='/material-symbols_logout.svg'
                                       alt='material-symbols_logout'
@@ -240,24 +276,7 @@ export default function DraggableModal() {
                             Where can DeFy help you bridge today?
                           </h2>
                           <p className="text-sm text-[#4C4C4C]">Choose from various Bridging options.</p>
-                        </div>
-                    )}
-                    {messages.map((msg, idx) => (
-                      <div key={idx} className={`flex items-start mb-4 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                        {msg.role !== 'user' && (
-                          <div className="w-6 h-6 bg-[#E4EAD8] text-[#4C4C4C] rounded-md flex items-center justify-center text-xs font-semibold mr-2">
-                            L
-                          </div>
-                        )}
-                        <div className={`px-4 py-2 text-sm max-w-[80%] rounded-lg bg-white/40 text-[#4C4C4C] shadow-sm`}>
-                          {msg.text}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className=' absolute sm:px-auto px-3 bottom-10 left-0 right-0'>
-                    {messages.length === 0 && (
+                          {messages.length === 0 && (
                       <div className="rounded-lg text-center text-[#4C4C4C] space-y-6 mb-4">
                         <div className="grid sm:grid-cols-3 grid-cols-2 sm:gap-4 gap-2 text-sm text-left">
                           {[
@@ -281,6 +300,23 @@ export default function DraggableModal() {
                         </div>
                       </div>
                     )}
+                        </div>
+                    )}
+                    {messages.map((msg, idx) => (
+                      <div key={idx} className={`flex items-start mb-4 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                        {msg.role !== 'user' && (
+                          <div className="w-6 h-6 bg-[#E4EAD8] text-[#4C4C4C] rounded-md flex items-center justify-center text-xs font-semibold mr-2">
+                            L
+                          </div>
+                        )}
+                        <div className={`px-4 py-2 text-sm max-w-[80%] rounded-lg bg-white/40 text-[#4C4C4C] shadow-sm`}>
+                          {msg.text}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className=' absolute sm:px-auto px-3 bottom-10 left-0 right-0'>
                     <div className="relative w-full">
                       <input
                         type="text"
@@ -301,6 +337,7 @@ export default function DraggableModal() {
           )}
         </div>
       </div>
+      <Footer hideSection={hideFooterSection} onClick={handleFooterClick}/>
     </div>
   );
 }
