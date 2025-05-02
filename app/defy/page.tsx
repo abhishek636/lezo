@@ -203,7 +203,7 @@ export default function DraggableModal() {
                     {messages.length === 0 && (
                        <div className="rounded-lg text-center text-[#4C4C4C] space-y-6">
                           <div
-                            className="relative inline-block"
+                            className="relative inline-block sm:mb-auto mb-1"
                             onMouseEnter={() => !isMobile && setDropdownOpen(true)}
                             onMouseLeave={() => !isMobile && setDropdownOpen(false)}
                           >
@@ -234,7 +234,7 @@ export default function DraggableModal() {
                             )}
                           </div>
                     
-                          <h2 className="sm:text-4xl text-2xl text-[#4C4C4C] sm:mb-auto mb-2">
+                          <h2 className="sm:text-4xl text-lg text-[#4C4C4C] sm:mb-auto mb-2">
                             Where can DeFy help you bridge today?
                           </h2>
                           <p className="text-sm text-[#4C4C4C]">Choose from various Bridging options.</p>
