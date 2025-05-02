@@ -73,23 +73,8 @@ body {
 }
 @media (max-width:769px){
   html, body {
-    height: 100%;
-    margin: 0;
-    overflow-x: hidden;
+    max-height: 100svh;
   }
-  /* .custom-marrggin-a{
-    margin:0px 15px;
-    overflow: hidden !important;
-  } */
-  /* .MOBILE_HEIGHT{
-    min-height: 70vh !important;
-    max-height: 70vh !important;
-    z-index: 999;
-    height: 100%;
-  } */
-  /* body{
-    max-height: 100vh;
-  } */
 }
 .backdrop_custom{
   backdrop-filter: blur(76.14620971679688px)
