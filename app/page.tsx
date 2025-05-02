@@ -95,13 +95,13 @@ export default function Home() {
     <div className="relative w-screen h-full overflow-hidden">
       <div className="absolute top-1/2 left-1/2 w-[177.77vh] h-[100vh] -translate-x-1/2 -translate-y-1/2">
       <video
-  className="w-full h-full object-cover scale-125"
-  src="/BG.mp4"
-  autoPlay
-  muted
-  loop
-  playsInline
-></video>
+        className="w-full h-full object-cover scale-125"
+        src="/BG.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+      ></video>
       </div>
 
       <div className="relative w-screen h-screen overflow-hidden">
@@ -118,7 +118,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="absolute top-1/8 w-full flex justify-center">
+      <div className="absolute top-1/8 w-full flex justify-center z-20">
       <Link href="/">
         <Image
           src="/logo.svg"

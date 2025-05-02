@@ -146,7 +146,7 @@ export default function DraggableModal() {
   if (!isVisible) return null;
 
   return (
-    <div className="relative w-screen h-[100vh] overflow-hidden">
+    <div className="relative w-screen sm:h-[100vh] h-full overflow-hidden">
       <div className="absolute top-1/2 left-1/2 w-[177.77vh] h-[100vh] -translate-x-1/2 -translate-y-1/2">
       <video
         className="w-full h-full object-cover scale-125"
@@ -239,7 +239,7 @@ export default function DraggableModal() {
                     {messages.length === 0 && (
                        <div className="rounded-lg text-center text-[#4C4C4C] space-y-6">
                           <div
-                            className="relative inline-block  mb-1 sm:mb-6.5"
+                            className="relative inline-block  mb-1 mb-6.5"
                             onMouseEnter={() => !isMobile && setDropdownOpen(true)}
                             onMouseLeave={() => !isMobile && setDropdownOpen(false)}
                           >
@@ -273,7 +273,7 @@ export default function DraggableModal() {
                           </div>
                     
                           <h2 className="sm:text-4xl text-lg text-[#4C4C4C] sm:mb-auto sm:mb-2 mb-0">
-                            Where can DeFy help you bridge today?
+                            Where do you want to Bridge today?
                           </h2>
                           <p className="text-sm text-[#4C4C4C]">Choose from various Bridging options.</p>
                           {messages.length === 0 && (
