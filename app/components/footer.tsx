@@ -186,7 +186,7 @@ export default function Footer() {
 
         {isModalMinimized && (
           <button onClick={handleRestore} className="bg-white/10 p-3 rounded-lg">
-            <Image src="/defy.png" alt="defy" width={34} height={34} />
+            <Image src="/defy.svg" alt="defy" width={34} height={34} />
           </button>
         )}
 

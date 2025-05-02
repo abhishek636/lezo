@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import '../globals.css';
 import Link from 'next/link';
+import Footer from '../components/footer';
 
 type Message = { role: 'user' | 'bot'; text: string };
 
@@ -26,6 +27,20 @@ export default function DraggableModal() {
 
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
+
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if viewport is mobile/tablet
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 1024); // 1024px = tablet and below
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
 
   const marqueeText = "OPERATING SYSTEM FOR AI AGENTS";
 
@@ -138,7 +153,7 @@ export default function DraggableModal() {
       <div className=" fixed custom-marrggin-a inset-0 z-50 flex justify-center sm:items-center items-end sm:w-auto mx-auto overflow-hidden" onMouseMove={handleMouseMove} onMouseUp={handleMouseUp}>
         <div
           ref={modalRef}
-          className={`absolute  rounded-lg border border-gray-400 shadow-xl ${isMaximized ? 'top-0 left-0 w-full  h-full backdrop_custom bg-custom-gradient' : 'lg:w-[890px] w-full backdrop_custom  bg-custom-gradient'}`}
+          className={`absolute  rounded-lg border border-gray-400 shadow-xl ${isMaximized ? 'top-0 left-0 w-full  h-full backdrop_custom bg-custom-gradient' : 'lg:w-[890px] w-full   bg-custom-gradient'}`}
           style={!isMaximized && isClient? { left: position.x, top: position.y } : {}}
         >
           {/* Header */}
@@ -186,15 +201,44 @@ export default function DraggableModal() {
                 <div className="sm:py-7 sm:px-16  p-4 flex flex-col min-h-[500px] h-full p-4 rounded-b-lg text-[#4C4C4C] space-y-4 overflow-hidden">
                   <div className=" sm:flex-1 overflow-y-auto p-2 rounded">
                     {messages.length === 0 && (
-                      <div className="rounded-lg text-center text-[#4C4C4C] space-y-6">
-                        <div className="inline-flex sm:gap-2 gap-1 items-center bg-white/40 rounded-xl p-2 w-content text-[#4C4C4C]">
-                          <Image src="/vaulate.svg" alt="Logo" width={20} height={20} />
-                          EFWvSq...v27Q9g
-                          <Image src="/weui_arrow-outlined.svg" alt="Logo" width={16} height={16} />
+                       <div className="rounded-lg text-center text-[#4C4C4C] space-y-6">
+                          <div
+                            className="relative inline-block"
+                            onMouseEnter={() => !isMobile && setDropdownOpen(true)}
+                            onMouseLeave={() => !isMobile && setDropdownOpen(false)}
+                          >
+                            <div
+                              onClick={() => isMobile && setDropdownOpen((prev) => !prev)}
+                              className="inline-flex sm:gap-2 gap-1 items-center bg-white/40 rounded-xl p-2 w-content text-[#4C4C4C] cursor-pointer"
+                            >
+                              <Image src="/vaulate.svg" alt="Logo" width={20} height={20} />
+                              EFWvSq...v27Q9g
+                              <Image src="/weui_arrow-outlined.svg" alt="Arrow" width={16} height={16} />
+                            </div>
+                    
+                            {/* Dropdown menu */}
+                            {isDropdownOpen && (
+                              <div className="absolute left-0 w-fit bg-custom-gradient backdrop-blur-[76px] rounded-md shadow-lg z-10" >
+                                <ul className=" text-left text-sm text-[#4C4C4C]">
+                                  <li className="px-4 rounded-t-md py-2 hover:bg-[#4C4C4C] hover:text-white cursor-pointer">EFWVsq...v27Q9g (Linked wallet)</li>
+                                  <li className="flex px-4 py-2 hover:bg-[#4C4C4C] hover:text-white cursor-pointer">
+                                    <Image
+                                      src='/material-symbols_logout.svg'
+                                      alt='material-symbols_logout'
+                                      width={21}
+                                      height={21}
+                                    />
+                                    Logout</li>
+                                </ul>
+                              </div>
+                            )}
+                          </div>
+                    
+                          <h2 className="sm:text-4xl text-2xl text-[#4C4C4C] sm:mb-auto mb-2">
+                            Where can DeFy help you bridge today?
+                          </h2>
+                          <p className="text-sm text-[#4C4C4C]">Choose from various Bridging options.</p>
                         </div>
-                        <h2 className="sm:text-4xl text-2xl; text-[#4C4C4C] sm:mb-auto mb-2">Where can DeFy help you bridge today?</h2>
-                        <p className="text-sm text-[#4C4C4C]">Choose from various Bridging options.</p>
-                      </div>
                     )}
                     {messages.map((msg, idx) => (
                       <div key={idx} className={`flex items-start mb-4 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
