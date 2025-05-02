@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
@@ -29,12 +29,13 @@ export default function Footer() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [popupContent, setPopupContent] = useState<PopupContent | null>(null);
   const [menuOpen, setMenuOpen] = useState(true);
-
   const [isModalMinimized, setIsModalMinimized] = useState(false);
-  const [modalPosition, setModalPosition] = useState(null); // To store the position
+  const [modalPosition, setModalPosition] = useState(null);
+  const popupRef = useRef<HTMLDivElement>(null);
+
   const router = useRouter();
 
-  // Check if the modal was minimized when the page loads
+  // Restore minimized state
   useEffect(() => {
     const minimizedState = sessionStorage.getItem('modalMinimized');
     const position = sessionStorage.getItem('modalPosition');
@@ -47,14 +48,11 @@ export default function Footer() {
     }
   }, []);
 
-  // Function to restore the modal
   const handleRestore = () => {
     setIsModalMinimized(false);
-    sessionStorage.removeItem('modalMinimized'); // Clear minimized state
-    sessionStorage.removeItem('modalPosition'); // Clear position state
-
-    // Navigate to the page (stay on the same page in this case)
-    router.push('/defy'); // This can be optional if you want to stay on the same page
+    sessionStorage.removeItem('modalMinimized');
+    sessionStorage.removeItem('modalPosition');
+    router.push('/defy');
   };
 
   useEffect(() => {
@@ -70,11 +68,11 @@ export default function Footer() {
       .catch((err) => console.error('Error loading card data:', err));
   }, []);
 
-  const toggleMenu = () => setMenuOpen(prev => !prev);
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
 
   const openPopup = (card: Card) => {
     fetch(card.popupContent.additionalCardsFile)
-      .then(res => res.json())
+      .then((res) => res.json())
       .then((additionalCards: AdditionalCard[]) => {
         setPopupContent({ ...card.popupContent, additionalCards });
         setIsPopupOpen(true);
@@ -89,6 +87,20 @@ export default function Footer() {
     setIsPopupOpen(false);
     setPopupContent(null);
   };
+
+  // Close popup when clicking outside
+  useEffect(() => {
+    if (!isPopupOpen) return;
+
+    const handleClickOutside = (event: MouseEvent) => {
+      if (popupRef.current && !popupRef.current.contains(event.target as Node)) {
+        closePopup();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isPopupOpen]);
 
   return (
     <>
@@ -113,10 +125,13 @@ export default function Footer() {
       {isPopupOpen && popupContent && (
         <>
           {/* Backdrop overlay */}
-          <div className="fixed inset-0 bg-black opacity-50 z-40 backdrop-blur-lg " />
+          <div className="fixed inset-0 bg-black opacity-50 z-40 backdrop-blur-lg" />
 
-          <div className="fixed top-1/4 left-0 right-0 flex items-center justify-center z-50 backdrop-blur-lg ">
-            <div className="relative bg-white/10 backdrop-blur-2xl border border-white/20 rounded-2xl sm:p-8 sm:mx-0 mx-4 p-4 w-[650px] h-[60vh] flex flex-col overflow-hidden pb-[5vh]">
+          <div className="fixed sm:top-1/4 top-1/5 left-0 right-0 flex items-center justify-center z-50 backdrop-blur-lg">
+            <div
+              ref={popupRef}
+              className="relative bg-white/10 backdrop-blur-2xl border border-white/20 rounded-2xl sm:p-8 sm:mx-0 mx-4 p-4 w-[650px] h-[60vh] flex flex-col overflow-hidden pb-[5vh]"
+            >
               {/* Close Button */}
               <button
                 onClick={closePopup}
@@ -128,7 +143,7 @@ export default function Footer() {
                   width={58}
                   height={58}
                   priority
-                  className="hover:[background:linear-gradient(115.95deg,rgba(239,239,239,0.6)_10.92%,rgba(255,255,255,0.08)_96.4%)] rounded-full"
+                  className="w-10 h-10 sm:w-[58px] sm:h-[58px] hover:[background:linear-gradient(115.95deg,rgba(239,239,239,0.6)_10.92%,rgba(255,255,255,0.08)_96.4%)] rounded-full"
                 />
               </button>
 
@@ -155,7 +170,10 @@ export default function Footer() {
       )}
 
       {/* Footer Base */}
-      <div style={{ backdropFilter: 'blur(76.14620971679688px)' }} className="absolute gradient-border backdrop-blur-2xs bottom-0 left-1/2 transform -translate-x-1/2 bg-white/20 p-3 rounded-t-xl flex items-center w-full sm:w-auto justify-center xl:justify-between gap-6">
+      <div
+        style={{ backdropFilter: 'blur(76.14620971679688px)' }}
+        className="absolute gradient-border backdrop-blur-2xs bottom-0 left-1/2 transform -translate-x-1/2 bg-white/20 p-3 rounded-t-xl flex items-center w-full sm:w-auto justify-center xl:justify-between gap-6"
+      >
         <div className="bg-white/10 sm:flex items-center gap-2.5 py-2.5 lg:px-10 px-2 rounded-lg hidden">
           <div className="flex flex-col text-lg text-white font-light leading-none">
             <span>{currentTime}</span>
@@ -165,18 +183,20 @@ export default function Footer() {
             <Image src="/Clock.png" alt="Clock" width={28} height={28} />
           </div>
         </div>
+
         {isModalMinimized && (
-        <button onClick={handleRestore} className="bg-white/10 p-3 rounded-lg">
-          <Image src="/defy.png" alt='defy' width={34} height={34}/>
-        </button>
-      )}
+          <button onClick={handleRestore} className="bg-white/10 p-3 rounded-lg">
+            <Image src="/defy.png" alt="defy" width={34} height={34} />
+          </button>
+        )}
+
         <div className="flex items-center justify-center">
           <Image src="/logo1.png" alt="LEZO Logo" width={131} height={40} />
         </div>
 
         <div className="flex gap-2 text-lg">
-          <button onClick={toggleMenu} className='cursor-pointer'>
-            <Image src={menuOpen ? "/close_toggel.png" : "/toggel.png"} alt="Toggle Menu" width={62} height={62} />
+          <button onClick={toggleMenu} className="cursor-pointer">
+            <Image src={menuOpen ? '/close_toggel.png' : '/toggel.png'} alt="Toggle Menu" width={62} height={62} />
           </button>
           <a target="_blank" href="#"><Image src="/twitter.png" alt="Twitter" width={62} height={62} /></a>
           <a target="_blank" href="#"><Image src="/telegram.png" alt="Telegram" width={62} height={62} /></a>
