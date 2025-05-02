@@ -118,7 +118,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="absolute top-1/8 w-full flex justify-center z-20">
+      <div className="absolute top-1/8 w-full flex justify-center sz-20">
       <Link href="/">
         <Image
           src="/logo.svg"
