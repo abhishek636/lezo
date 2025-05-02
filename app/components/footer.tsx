@@ -23,8 +23,8 @@ type Card = {
 };
 
 type FooterProps = {
-  hideSection: boolean; 
-  onClick: () => void;
+  hideSection?: boolean;              
+  onClick?: () => void;              
 };
 
 const Footer = ({ hideSection,onClick }: FooterProps) => {
