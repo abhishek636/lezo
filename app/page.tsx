@@ -183,7 +183,7 @@ export default function Home() {
           </div>
         </div>
       )}
-      <Footer hideSection={!showRestoreButton} onClick={restorePopup} />
+      <Footer/>
       
     </div>
   );
