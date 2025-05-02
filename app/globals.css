@@ -72,8 +72,12 @@ body {
   background: linear-gradient(to bottom, #f8d8a0, #b7745c, #6a4034); /* slightly darker on hover */
 }
 @media (max-width:769px){
-  html, body {
-    max-height: 100svh;
+  html,body{
+    height: 100dhv;
+    position:fixed;
+    top: 0;
+    left: 0;
+    right: 0;
   }
 }
 .backdrop_custom{
