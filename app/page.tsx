@@ -92,7 +92,7 @@ export default function Home() {
   };
 
   return (
-    <div className="relative w-screen h-[100vh] overflow-hidden">
+    <div className="relative w-screen h-full overflow-hidden">
       <div className="absolute top-1/2 left-1/2 w-[177.77vh] h-[100vh] -translate-x-1/2 -translate-y-1/2">
         <iframe
           className="w-full h-full scale-125"
