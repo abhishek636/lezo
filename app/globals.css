@@ -72,7 +72,7 @@ body {
   background: linear-gradient(to bottom, #f8d8a0, #b7745c, #6a4034); /* slightly darker on hover */
 }
 @media (max-width:769px){
-  html,body{
+  body{
     height: 100%;
     position:fixed;
     top: 0;
