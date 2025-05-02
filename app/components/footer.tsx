@@ -137,7 +137,7 @@ const Footer = ({ hideSection,onClick }: FooterProps) => {
           <div className="fixed sm:top-1/4 top-1/5 left-0 right-0 flex items-center justify-center z-50 backdrop-blur-lg">
             <div
               ref={popupRef}
-              className="relative bg-white/10 backdrop-blur-2xl border border-white/20 rounded-2xl sm:p-8 sm:mx-0 mx-4 p-4 w-[650px] h-[60vh] flex flex-col overflow-hidden pb-[5vh]"
+              className="relative bg-white/10 backdrop-blur-2xl border border-white/20 rounded-2xl sm:p-8 sm:mx-0 mx-4 p-4 w-[650px] sm:h-[60vh] h-[50vh] flex flex-col overflow-hidden "
             >
               {/* Popup Cards */}
               <div className="flex-1 overflow-y-auto overflow-x-hidden">
