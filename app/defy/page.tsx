@@ -105,7 +105,7 @@ export default function DraggableModal() {
       <div className="absolute top-1/2 left-1/2 w-[177.77vh] h-[100vh] -translate-x-1/2 -translate-y-1/2">
         <iframe
           className="w-full h-full scale-125"
-          src="https://www.youtube.com/embed/sIEaDl7hiNc?autoplay=1&mute=1&controls=0&loop=1&playlist=sIEaDl7hiNc&modestbranding=1&showinfo=0&rel=0&disablekb=1&fs=0&iv_load_policy=3"
+          src="https://www.youtube.com/embed/sIEaDl7hiNc?si=b81hfVXdw1MDgTu9&autoplay=1&mute=1&controls=0&loop=1&playlist=sIEaDl7hiNc&modestbranding=1&showinfo=0&rel=0"
           title="YouTube video player"
           frameBorder="0"
           allow="autoplay; encrypted-media"
@@ -255,7 +255,6 @@ export default function DraggableModal() {
           )}
         </div>
       </div>
-
     </div>
   );
 }
