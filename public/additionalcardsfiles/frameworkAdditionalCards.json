@@ -2,13 +2,13 @@
     {
       "id": 1,
       "title": "Defy",
-      "imageSrc": "/framer.png",
+      "imageSrc": "/framer.svg",
       "href": "/defy"
     },
     {
       "id": 2,
       "title": "Agent Store",
-      "imageSrc": "/Agent.png",
+      "imageSrc": "/Agent.svg",
       "href": "https://your-link.com/agent-store"
     },
     {
@@ -20,19 +20,19 @@
     {
       "id": 4,
       "title": "DAO",
-      "imageSrc": "/DAO.png",
+      "imageSrc": "/DAO.svg",
       "href": "https://your-link.com/another-card"
     },
     {
         "id": 5,
         "title": "Framework",
-        "imageSrc": "/framer.png",
+        "imageSrc": "/framer.svg",
         "href": "https://your-link.com/framework"
       },
       {
         "id": 6,
         "title": "Agent Store",
-        "imageSrc": "/Agent.png",
+        "imageSrc": "/Agent.svg",
         "href": "https://your-link.com/agent-store"
       },
       {
@@ -44,19 +44,19 @@
       {
         "id": 8,
         "title": "DAO",
-        "imageSrc": "/DAO.png",
+        "imageSrc": "/DAO.svg",
         "href": "https://your-link.com/another-card"
       },
       {
         "id": 9,
         "title": "Framework",
-        "imageSrc": "/framer.png",
+        "imageSrc": "/framer.svg",
         "href": "https://your-link.com/framework"
       },
       {
         "id": 10,
         "title": "Agent Store",
-        "imageSrc": "/Agent.png",
+        "imageSrc": "/Agent.svg",
         "href": "https://your-link.com/agent-store"
       },
       {
@@ -68,19 +68,19 @@
       {
         "id": 12,
         "title": "DAO",
-        "imageSrc": "/DAO.png",
+        "imageSrc": "/DAO.svg",
         "href": "https://your-link.com/another-card"
       },
       {
         "id": 13,
         "title": "Framework",
-        "imageSrc": "/framer.png",
+        "imageSrc": "/framer.svg",
         "href": "https://your-link.com/framework"
       },
       {
         "id": 14,
         "title": "Agent Store",
-        "imageSrc": "/Agent.png",
+        "imageSrc": "/Agent.svg",
         "href": "https://your-link.com/agent-store"
       },
       {
@@ -92,19 +92,19 @@
       {
         "id": 16,
         "title": "DAO",
-        "imageSrc": "/DAO.png",
+        "imageSrc": "/DAO.svg",
         "href": "https://your-link.com/another-card"
       },
       {
         "id": 17,
         "title": "Framework",
-        "imageSrc": "/framer.png",
+        "imageSrc": "/framer.svg",
         "href": "https://your-link.com/framework"
       },
       {
         "id": 18,
         "title": "Agent Store",
-        "imageSrc": "/Agent.png",
+        "imageSrc": "/Agent.svg",
         "href": "https://your-link.com/agent-store"
       },
       {
@@ -116,19 +116,19 @@
       {
         "id": 20,
         "title": "DAO",
-        "imageSrc": "/DAO.png",
+        "imageSrc": "/DAO.svg",
         "href": "https://your-link.com/another-card"
       },
       {
         "id": 21,
         "title": "Framework",
-        "imageSrc": "/framer.png",
+        "imageSrc": "/framer.svg",
         "href": "https://your-link.com/framework"
       },
       {
         "id": 22,
         "title": "Agent Store",
-        "imageSrc": "/Agent.png",
+        "imageSrc": "/Agent.svg",
         "href": "https://your-link.com/agent-store"
       },
       {
@@ -140,7 +140,7 @@
       {
         "id": 24,
         "title": "DAO",
-        "imageSrc": "/DAO.png",
+        "imageSrc": "/DAO.svg",
         "href": "https://your-link.com/another-card"
       }
   ]

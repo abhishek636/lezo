@@ -191,15 +191,15 @@ export default function Footer() {
         )}
 
         <div className="flex items-center justify-center">
-          <Image src="/logo1.png" alt="LEZO Logo" width={131} height={40} />
+          <Image src="/logo1.svg" alt="LEZO Logo" width={131} height={40} />
         </div>
 
         <div className="flex gap-2 text-lg">
           <button onClick={toggleMenu} className="cursor-pointer">
-            <Image src={menuOpen ? '/close_toggel.png' : '/toggel.png'} alt="Toggle Menu" width={62} height={62} />
+            <Image src={menuOpen ? '/close_toggel.svg' : '/toggel.svg'} alt="Toggle Menu" width={62} height={62} />
           </button>
-          <a target="_blank" href="#"><Image src="/twitter.png" alt="Twitter" width={62} height={62} /></a>
-          <a target="_blank" href="#"><Image src="/telegram.png" alt="Telegram" width={62} height={62} /></a>
+          <a target="_blank" href="#"><Image src="/twitter.svg" alt="Twitter" width={62} height={62} /></a>
+          <a target="_blank" href="#"><Image src="/telegram.svg" alt="Telegram" width={62} height={62} /></a>
         </div>
       </div>
     </>

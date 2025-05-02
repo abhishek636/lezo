@@ -2,13 +2,13 @@
     {
       "id": 1,
       "title": "Framework",
-      "imageSrc": "/framer.png",
+      "imageSrc": "/framer.svg",
       "href": "https://your-link.com/framework"
     },
     {
       "id": 2,
       "title": "Agent Store",
-      "imageSrc": "/Agent.png",
+      "imageSrc": "/Agent.svg",
       "href": "https://your-link.com/agent-store"
     },
     {
@@ -20,7 +20,7 @@
     {
       "id": 4,
       "title": "DAO",
-      "imageSrc": "/DAO.png",
+      "imageSrc": "/DAO.svg",
       "href": "https://your-link.com/another-card"
     }
   ]

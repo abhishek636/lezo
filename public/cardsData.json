@@ -4,7 +4,7 @@
   {
     "id": 1,
     "title": "Framework",
-    "imageSrc": "/framer.png",
+    "imageSrc": "/framer.svg",
     "popupContent": {
       "additionalCardsFile": "/additionalcardsfiles/frameworkAdditionalCards.json"
     }
@@ -12,7 +12,7 @@
   {
     "id": 2,
     "title": "Agent Store",
-    "imageSrc": "/Agent.png",
+    "imageSrc": "/Agent.svg",
     "popupContent": {
       "additionalCardsFile": "/additionalcardsfiles/daoAdditionalCards.json"
     }
@@ -28,7 +28,7 @@
   {
       "id": 4,
       "title": "DAO",
-      "imageSrc": "/DAO.png",
+      "imageSrc": "/DAO.svg",
       "popupContent": {
         "additionalCardsFile": "/additionalcardsfiles/daoAdditionalCards.json"
       }

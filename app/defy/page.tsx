@@ -103,14 +103,14 @@ export default function DraggableModal() {
   return (
     <div className="relative w-screen h-[100vh] overflow-hidden">
       <div className="absolute top-1/2 left-1/2 w-[177.77vh] h-[100vh] -translate-x-1/2 -translate-y-1/2">
-        <iframe
-          className="w-full h-full scale-125"
-          src="https://www.youtube.com/embed/sIEaDl7hiNc?si=b81hfVXdw1MDgTu9&autoplay=1&mute=1&controls=0&loop=1&playlist=sIEaDl7hiNc&modestbranding=1&showinfo=0&rel=0"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="autoplay; encrypted-media"
-          allowFullScreen
-        ></iframe>
+      <video
+        className="w-full h-full object-cover scale-125"
+        src="/BG.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+      ></video>
       </div>
 
 
