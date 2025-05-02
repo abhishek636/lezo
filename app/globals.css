@@ -73,7 +73,7 @@ body {
 }
 @media (max-width:769px){
   html,body{
-    height: 100dhv;
+    height: 100%;
     position:fixed;
     top: 0;
     left: 0;
