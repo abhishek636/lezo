@@ -196,7 +196,7 @@ const Footer = ({ hideSection,onClick }: FooterProps) => {
             )}
 
             {isPopupOpen && (
-              <button onClick={closePopup} className='bg-white/10 backdrop-blur-md rounded-lg'>
+              <button onClick={closePopup} className='bg-white/10 backdrop-blur-md rounded-lg hithere'>
                 <Image src="/close_toggel.svg" alt="Close Popup" width={58} height={58} />
               </button>
             )}
